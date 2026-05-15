@@ -284,3 +284,7 @@ npm run build
 - Add upload transformations, malware scanning, and CDN image presets.
 - Add Redis caching, rate limiting, observability, and background AI jobs.
 - Add Playwright coverage for browser-level flows.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
