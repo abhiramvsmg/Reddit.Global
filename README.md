@@ -4,6 +4,16 @@ Full-stack Reddit-style social platform built with FastAPI, SQLAlchemy, JWT auth
 
 This project is designed for appraisal as a realistic global product foundation: it has auth, communities, posts, voting, nested discussions, AI metadata, moderation workflows, profile pages, deployment config, and tests.
 
+## Best Description
+
+Reddit.Global is a full-stack, AI-assisted community discussion platform inspired by Reddit. Users can sign up, create communities, publish text/link/image posts, vote, comment, reply in nested discussions, bookmark content, view profiles, receive notifications, and use AI-powered post assistance and moderation signals. The project is built as a production-minded portfolio app with separated frontend/backend architecture, JWT authentication, database migrations, deployment configuration, and a clean path from local SQLite development to PostgreSQL-backed production hosting.
+
+Short description for GitHub:
+
+```text
+Full-stack AI-powered Reddit-style social platform with communities, posts, voting, comments, moderation, profiles, notifications, FastAPI backend, and Next.js frontend.
+```
+
 ## Current Status
 
 This repository contains the full source code. It is not a hosted public app by default; when you run it locally, the backend starts on `http://localhost:8000` and the frontend starts on `http://localhost:3000`.
@@ -53,6 +63,23 @@ Then open a pull request on GitHub.
 - Node.js 20+
 - npm
 - Git
+
+## Tools And Tech Stack
+
+- **Frontend:** Next.js 16, React 19, TypeScript, Tailwind CSS
+- **UI/UX:** Lucide React icons, Framer Motion animations, responsive app-router pages
+- **State/Data:** TanStack React Query, Zustand, Axios
+- **Backend:** FastAPI, Python, Uvicorn
+- **Database:** SQLAlchemy ORM, SQLite for local development, PostgreSQL-ready production config
+- **Migrations:** Alembic
+- **Authentication:** JWT bearer tokens with `python-jose`, password hashing with Passlib/bcrypt
+- **Validation/Settings:** Pydantic Settings, email-validator
+- **Uploads:** Cloudinary signed upload flow through backend-protected credentials
+- **AI Layer:** Local deterministic AI service plus OpenAI-compatible provider boundary
+- **Realtime:** WebSocket notification/vote update hook
+- **Testing:** Pytest for backend product flow tests, Next.js production build checks
+- **Deployment:** Render/Railway backend config, Vercel frontend config
+- **Version Control:** Git and GitHub
 
 ## What Is Included
 
