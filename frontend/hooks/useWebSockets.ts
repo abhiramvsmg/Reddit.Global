@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useAuthStore } from "@/lib/store/useAuthStore";
 import { useQueryClient } from "@tanstack/react-query";
+import { API_URL } from "@/lib/api";
 
 type WSEvent = {
   event: "notification" | "vote_update" | "presence";
@@ -16,7 +17,8 @@ export const useWebSockets = () => {
   useEffect(() => {
     if (!token || !user) return;
 
-    const wsUrl = `ws://localhost:8000/ws/${user.id}`;
+    const wsBaseUrl = API_URL.replace(/^http/, "ws").replace(/\/$/, "");
+    const wsUrl = `${wsBaseUrl}/ws/${user.id}`;
     const socket = new WebSocket(wsUrl);
 
     socket.onopen = () => {

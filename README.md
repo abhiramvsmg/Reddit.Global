@@ -4,6 +4,56 @@ Full-stack Reddit-style social platform built with FastAPI, SQLAlchemy, JWT auth
 
 This project is designed for appraisal as a realistic global product foundation: it has auth, communities, posts, voting, nested discussions, AI metadata, moderation workflows, profile pages, deployment config, and tests.
 
+## Current Status
+
+This repository contains the full source code. It is not a hosted public app by default; when you run it locally, the backend starts on `http://localhost:8000` and the frontend starts on `http://localhost:3000`.
+
+Other users can use it by forking or cloning the repo, installing dependencies, and running both apps locally. They can also deploy their own copy to services such as Render/Railway for the backend and Vercel for the frontend.
+
+## Repository
+
+```text
+https://github.com/abhiramvsmg/Reddit.Global
+```
+
+## Fork Or Clone
+
+To make your own copy on GitHub:
+
+1. Open `https://github.com/abhiramvsmg/Reddit.Global`.
+2. Click **Fork**.
+3. Clone your fork:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/Reddit.Global.git
+cd Reddit.Global
+```
+
+To clone this repository directly:
+
+```bash
+git clone https://github.com/abhiramvsmg/Reddit.Global.git
+cd Reddit.Global
+```
+
+To contribute changes from a fork:
+
+```bash
+git checkout -b feature/your-feature-name
+git add .
+git commit -m "Describe your change"
+git push -u origin feature/your-feature-name
+```
+
+Then open a pull request on GitHub.
+
+## Prerequisites
+
+- Python 3.11+
+- Node.js 20+
+- npm
+- Git
+
 ## What Is Included
 
 - User signup/login with JWT bearer tokens
@@ -77,7 +127,13 @@ uvicorn app.main:app --reload
 
 The API runs at `http://localhost:8000`. Swagger docs are available at `http://localhost:8000/docs`.
 
-For PostgreSQL, copy `backend/.env.example` to `backend/.env` and set `DATABASE_URL`. Without that file, the backend uses `sqlite:///./reddit_clone.db`.
+For local setup, copy `backend/.env.example` to `backend/.env` only if you want to customize settings:
+
+```bash
+cp backend/.env.example backend/.env
+```
+
+Without that file, the backend uses SQLite as a zero-config local database. For PostgreSQL, set `DATABASE_URL` in `backend/.env`.
 
 For production migrations:
 
@@ -97,6 +153,33 @@ npm run dev
 ```
 
 The app runs at `http://localhost:3000`.
+
+For local setup, the frontend uses `http://localhost:8000` by default. To point it at another backend, copy `frontend/.env.example` to `frontend/.env.local` and edit:
+
+```bash
+NEXT_PUBLIC_API_URL=http://localhost:8000
+```
+
+## Run The Full App Locally
+
+Open two terminals:
+
+Terminal 1:
+
+```bash
+cd backend
+.venv\Scripts\activate
+uvicorn app.main:app --reload
+```
+
+Terminal 2:
+
+```bash
+cd frontend
+npm run dev
+```
+
+Then open `http://localhost:3000` in your browser.
 
 ## API Summary
 
