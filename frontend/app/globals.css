@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 263.4 70% 50.4%;
+  }
+}
+
+body {
+  @apply bg-background text-text antialiased selection:bg-primary/30;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(6, 182, 212, 0.03) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+.glass-card {
+  @apply border border-white/[0.05] bg-white/[0.02] backdrop-blur-2xl transition-all duration-500;
+  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
+}
+
+.glass-card:hover {
+  @apply border-white/[0.12] bg-white/[0.04];
+  box-shadow: 0 8px 32px -1px rgba(0, 0, 0, 0.3);
+}
+
+.neural-glow {
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.15);
+}
+
+.neural-border {
+  @apply relative overflow-hidden;
+}
+
+.neural-border::after {
+  content: '';
+  @apply absolute inset-0 -translate-y-full animate-neural-scan bg-gradient-to-b from-transparent via-primary/10 to-transparent pointer-events-none;
+}
+
+.skeleton {
+  @apply animate-shimmer bg-gradient-to-r from-white/[0.02] via-white/[0.08] to-white/[0.02] bg-[length:200%_100%];
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-white/5 hover:bg-white/10 transition-colors;
+}
+
+.auth-scan-line {
+  animation: auth-scan 2.4s ease-in-out infinite;
+}
+
+.auth-pulse {
+  animation: auth-pulse 1s ease-in-out infinite;
+}
+
+@keyframes auth-scan {
+  0% { transform: translateX(-105%); }
+  55% { transform: translateX(210%); }
+  100% { transform: translateX(210%); }
+}
+
+@keyframes auth-pulse {
+  0%, 100% { opacity: 0.65; transform: scale(0.96); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
